@@ -13,14 +13,24 @@ namespace WebThing.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult About()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Past()
         {
             return View();
+        }
+
+        public IActionResult Future()
+        {
+            return View();
+        }
+
+        public IActionResult Google()
+        {
+            return Redirect("https://google.com");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
