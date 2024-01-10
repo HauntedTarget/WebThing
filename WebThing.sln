@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebThing", "WebThing\WebThing.csproj", "{9ADFF956-1712-4839-9300-BC2F351DF822}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesApp", "MoviesApp\MoviesApp.csproj", "{972B7371-2578-407B-9903-65329D890AB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadLib", "MadLib\MadLib.csproj", "{8684D9D0-A28C-4084-8DCD-B1C58DE19F2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{9ADFF956-1712-4839-9300-BC2F351DF822}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ADFF956-1712-4839-9300-BC2F351DF822}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ADFF956-1712-4839-9300-BC2F351DF822}.Release|Any CPU.Build.0 = Release|Any CPU
-		{972B7371-2578-407B-9903-65329D890AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{972B7371-2578-407B-9903-65329D890AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{972B7371-2578-407B-9903-65329D890AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{972B7371-2578-407B-9903-65329D890AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8684D9D0-A28C-4084-8DCD-B1C58DE19F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8684D9D0-A28C-4084-8DCD-B1C58DE19F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8684D9D0-A28C-4084-8DCD-B1C58DE19F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8684D9D0-A28C-4084-8DCD-B1C58DE19F2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

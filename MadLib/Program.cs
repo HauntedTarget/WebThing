@@ -1,4 +1,4 @@
-namespace MoviesApp
+namespace MadLib
 {
     public class Program
     {

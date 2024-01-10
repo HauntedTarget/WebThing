@@ -6,6 +6,7 @@ namespace WebThing.Controllers
 {
     public class HomeController : Controller
     {
+        private static int intCount = 0;
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -25,6 +26,23 @@ namespace WebThing.Controllers
 
         public IActionResult Future()
         {
+            return View();
+        }
+        public IActionResult Counter()
+        {
+            ViewBag.Counter = intCount++;
+            ViewData["Count"] = intCount;
+            return View();
+        }
+        public IActionResult Input()
+        {
+            ViewData["Title"] = "Input Form";
+            return View();
+        }
+        public IActionResult Output(string FirstName, string LastName)
+        {
+            ViewBag.FN = FirstName;
+            ViewBag.LN = LastName;
             return View();
         }
 

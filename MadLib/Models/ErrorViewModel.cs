@@ -1,4 +1,4 @@
-namespace MoviesApp.Models
+namespace MadLib.Models
 {
     public class ErrorViewModel
     {

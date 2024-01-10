@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MoviesApp.Models;
+﻿using MadLib.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace MoviesApp.Controllers
+namespace MadLib.Controllers
 {
     public class HomeController : Controller
     {
