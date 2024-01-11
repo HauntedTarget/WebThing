@@ -12,9 +12,15 @@ namespace WebThing.Controllers
             new Movie("Spiderman, Across the Spiderverse", 2004, 5f)
         };
 
-        public IActionResult Index()
+        public IActionResult DisplayMovie()
         {
-            return View();
+            Movie m = MovieList[0];
+            return View(m);
+        }
+
+        public IActionResult MultMovies()
+        {
+            return View(MovieList);
         }
     }
 }
