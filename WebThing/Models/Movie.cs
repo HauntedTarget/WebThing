@@ -9,11 +9,23 @@
         public int? Year { get; set; }
         public float? Rating { get; set; }
 
+        public DateTime? ReleaseDate { get; set; }
+
+        public Movie() { }
+
         public Movie(string title, int year, float rating) 
         {
             Title = title;
             Year = year;
             Rating = rating;
+        }
+
+        public Movie(string title, int year, float rating, DateTime dateTime)
+        {
+            Title = title;
+            Year = year;
+            Rating = rating;
+            ReleaseDate = dateTime;
         }
     }
 }
