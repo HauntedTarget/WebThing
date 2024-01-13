@@ -1,0 +1,23 @@
+﻿@*
+    Once upon a time, there was a [noun1] who fell in love with a [adjective] block of cheese.
+    Since they knew that the cheese was just an object, they attempted to [verb (present tense)] to get its' attention.
+    The cheese still didn't notice the [adjective] efforts and instead started to [verb (present tense)] due to
+    being too [adjective]. The [noun1] started to feel sad and [verb (ending in -ed)] never to love cheese again.
+*@
+
+
+@if (!string.IsNullOrEmpty(ViewBag.noun) && !string.IsNullOrEmpty(ViewBag.adjective) && !string.IsNullOrEmpty(ViewBag.adjective2) && !string.IsNullOrEmpty(ViewBag.adjective3) && !string.IsNullOrEmpty(ViewBag.verb) && !string.IsNullOrEmpty(ViewBag.verb2) && !string.IsNullOrEmpty(ViewBag.verb3))
+{
+    <h2>
+        Once upon a time, there was a <label class="fw-bolder">@ViewBag.noun</label> who fell in love with a <label class="fw-bolder">@ViewBag.adjective</label> block of cheese.
+        Since they knew that the cheese was just an object, they attempted to <label class="fw-bolder">@ViewBag.verb</label> to get its' attention.
+        The cheese still didn't notice the <label class="fw-bolder">@ViewBag.adjectivew</label> efforts and instead started to <label class="fw-bolder">@ViewBag.verb2</label> due to
+        being too <label class="fw-bolder">@ViewBag.adjective3</label>. The <label class="fw-bolder">@ViewBag.noun</label> started to feel sad and <label class="fw-bolder">@ViewBag.verb3</label> never to love cheese again.
+    </h2>
+}
+else
+{
+    <div class="alert-danger">
+        <h4>Missing one or multiple input!</h4>
+    </div>
+}

@@ -2,7 +2,42 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="align-text-top">
+    <h1 class="display-4">Welcome, please  fill out the form to make the mad-lib:</h1>
+    <br /><br />
+    <form asp-controller="Home" asp-action="MadLib" method="post">
+        <div class="row">
+            <div class="col-12">
+                <label for="noun">Noun: </label>
+                <input id="noun" type="text" name="noun" placeholder="noun" />
+            </div>
+            <div class="col-12">
+                <label for="adjective">Adjective: </label>
+                <input id="adjective" type="text" name="adjective" placeholder="adjective" />
+            </div>
+            <div class="col-12">
+                <label for="verb">Verb: </label>
+                <input id="verb" type="text" name="verb" placeholder="verb (present tense)" />
+            </div>
+            <div class="col-12">
+                <label for="adjective2">Adjective: </label>
+                <input id="adjective2" type="text" name="adjective2" placeholder="adjective" />
+            </div>
+            <div class="col-12">
+                <label for="verb2">Verb: </label>
+                <input id="verb2" type="text" name="verb2" placeholder="verb (present tense)" />
+            </div>
+            <div class="col-12">
+                <label for="adjective3">Adjective: </label>
+                <input id="adjective3" type="text" name="adjective3" placeholder="adjective" />
+            </div>
+            <div class="col-12">
+                <label for="verb3">Verb: </label>
+                <input id="verb3" type="text" name="verb3" placeholder="verb (ending in -ed)" />
+            </div>
+            <div class="col-4">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
 </div>

@@ -18,8 +18,16 @@ namespace MadLib.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult MadLib(string noun, string adjective, string verb, string adjective2, string verb2, string adjective3, string verb3)
         {
+            ViewBag.noun = noun;
+            ViewBag.adjective = adjective;
+            ViewBag.adjective2 = adjective2;
+            ViewBag.adjective3 = adjective3;
+            ViewBag.verb = verb;
+            ViewBag.verb2 = verb2;
+            ViewBag.verb3 = verb3;
+               
             return View();
         }
 
