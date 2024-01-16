@@ -8,8 +8,7 @@ namespace WebThing.Controllers
         private static List<Movie> MovieList = new()
         {
             new Movie("A Series of Unfortunate Events", 2004, 4.0f),
-            new Movie("Everything Everywhere All At Once", 2022, 4.5f),
-            new Movie("Spiderman, Across the Spiderverse", 2004, 5f)
+            new Movie("Everything Everywhere All At Once", 2022, 4.5f, DateTime.Now ,"https://upload.wikimedia.org/wikipedia/en/1/1e/Everything_Everywhere_All_at_Once.jpg")
         };
 
         public IActionResult DisplayMovie()

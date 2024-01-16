@@ -5,8 +5,19 @@
     <h3 class="fw-bolder">@Model.Title</h3>
     <h3>@Model.Year</h3>
     <h3>@Model.Rating</h3>
+    <img src="@Model.Image" />
 }
 else
 {
     <h2>No movie provided</h2>
+}
+
+@if (Model.ReleaseDate.HasValue)
+{
+    <button>Return</button>
+}
+else
+{
+    <input placeholder="Name" />
+    <button>Loan</button>
 }
