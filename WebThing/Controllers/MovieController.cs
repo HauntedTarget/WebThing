@@ -21,5 +21,25 @@ namespace WebThing.Controllers
         {
             return View(MovieList);
         }
+
+        public IActionResult OnLoan(int id, string loanerName)
+        {
+            Movie movieThing = MovieList[id];
+
+            movieThing.LoanerName = loanerName;
+            movieThing.ReleaseDate = DateTime.Now;
+
+            return RedirectToAction("MultMovies", "Movie");
+        }
+
+        public IActionResult OffLoan(int id)
+        {
+            Movie movieThing = MovieList[id];
+
+            movieThing.LoanerName = null;
+            movieThing.ReleaseDate = null;
+
+            return RedirectToAction("MultMovies", "Movie");
+        }
     }
 }

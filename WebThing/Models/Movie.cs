@@ -15,6 +15,8 @@ namespace WebThing.Models
 
         public string? Image {  get; set; }
 
+        public string? LoanerName { get; set; }
+
         public Movie() 
         {
         }

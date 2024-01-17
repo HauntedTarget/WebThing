@@ -1,23 +1,34 @@
 ﻿@model Movie
 
-@if (Model != null)
-{
-    <h3 class="fw-bolder">@Model.Title</h3>
-    <h3>@Model.Year</h3>
-    <h3>@Model.Rating</h3>
-    <img src="@Model.Image" />
-}
-else
-{
-    <h2>No movie provided</h2>
-}
+<div class="border p-3 mt-4">
+    @if (Model != null)
+    {
+        <h3 class="fw-bolder">@Model.Title</h3>
+        <img src="@Model.Image" />
+        <label class="row px-3">Year: @Model.Year</label>
+        <label class="row px-3">Rating: @Model.Rating</label>
 
-@if (Model.ReleaseDate.HasValue)
-{
-    <button>Return</button>
-}
-else
-{
-    <input placeholder="Name" />
-    <button>Loan</button>
-}
+        @if (Model.LoanerName != null)
+        {
+            <form asp-controller="Movie" asp-action="OffLoan" method="post">
+                <div class="row">
+                    <input type="hidden" name="id" value="@Model.ID" />
+                    <label asp-for="Title" class="px-3">Loaned to @Model.LoanerName on @Model.ReleaseDate</label>
+                    <button type="submit">Return</button>
+                </div>
+            </form>
+        }
+        else
+        {
+            <form asp-controller="Movie" asp-action="OnLoan" method="post">
+                <input type="hidden" name="id" value="@Model.ID" />
+                <input id="loanerName" type="text" name="loanerName" placeholder="Name" />
+                <button type="submit">Loan</button>
+            </form>
+        }
+    }
+    else
+    {
+        <h2>No movie provided</h2>
+    }
+</div>

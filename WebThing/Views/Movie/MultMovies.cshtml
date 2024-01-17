@@ -2,16 +2,18 @@
 @model IEnumerable<Movie>
 
 <h1>Movie List</h1>
-
+<div class="row pb-2">
 @if (Model != null && Model.Count() > 0)
 {
     foreach (Movie m in Model)
     {
-        <partial name="_MoviePartialView.cshtml" for="@m" />
-        <br />
+        <div class="col-3">
+            <partial name="_MoviePartialView.cshtml" for="@m" />
+        </div>
     }
 }
 else
 {
     <h2>No movies provided</h2>
 }
+</div>
