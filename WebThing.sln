@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebThing", "WebThing\WebThi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MadLib", "MadLib\MadLib.csproj", "{8684D9D0-A28C-4084-8DCD-B1C58DE19F2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoGameLibrary", "VideoGameLibrary\VideoGameLibrary.csproj", "{67F7D72D-8A11-4660-9E8B-D0EE7D549B1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoGameLibrary", "VideoGameLibrary\VideoGameLibrary.csproj", "{67F7D72D-8A11-4660-9E8B-D0EE7D549B1B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assignments", "Assignments", "{2A5158CB-F42D-4316-BDE9-200B7C79349C}"
 EndProject

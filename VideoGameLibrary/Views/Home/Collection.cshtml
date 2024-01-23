@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Game>
+
+<h1 class="fw-bolder btn-outline-dark p-3">Game Library</h1>
+<div class="row pb-2">
+    @if (Model != null && Model.Count() > 0)
+    {
+        foreach (Game g in Model)
+        {
+            <div class="col-3 alert-secondary">
+                <partial name="_GamePartialView.cshtml" for="@g" />
+            </div>
+        }
+    }
+    else
+    {
+        <h2 class="fw-semibold alert-secondary">No games in library</h2>
+    }
+</div>

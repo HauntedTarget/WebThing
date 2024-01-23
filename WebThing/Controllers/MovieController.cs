@@ -17,6 +17,25 @@ namespace WebThing.Controllers
             return View(m);
         }
 
+        [HttpGet]
+        public IActionResult Edit(int? id) 
+        { 
+            if (id == null)
+            {
+                ViewData["Error"] = "Movie ID not found";
+                return View();
+            }
+            else
+            {
+                Movie? m = MovieList.Where(m => m.ID == id).FirstOrDefault();
+                if (m == null)
+                {
+                    ViewData["Error"] = "Movie under ID not found";
+                }
+                return View(m);
+            }
+        }
+
         public IActionResult MultMovies()
         {
             return View(MovieList);

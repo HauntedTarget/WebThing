@@ -1,0 +1,59 @@
+﻿@model Game
+
+<div class="border p-3 mt-4">
+    <div>
+        @if (Model != null)
+        {
+            <h3 class="fw-bolder text-center btn-outline-light pt-1">@Model.GameTitle</h3>
+            <img src="@Model.Image" width="275" class="align-content-center top-0"/>
+            <div class="pt-3 pb-3">
+                @if (Model.platform == Game.Platform.Playstation)
+                {
+                    <img src="/images/playstationLogo.png" width="50" />
+                }
+                else if (Model.platform == Game.Platform.XBox)
+                {
+                    <img src="/images/xboxLogo.png" width="50" />
+                }
+                else if (Model.platform == Game.Platform.Nintendo)
+                {
+                    <img src="/images/nintendoLogo.png" width="50" />
+                }
+                else if (Model.platform == Game.Platform.Steam)
+                {
+                    <img src="/images/steamLogo.png" width="50" />
+                }
+                else
+                {
+                    <img src="/images/epicLogo.png" width="50" />
+                }
+            </div>
+            <label class="row px-3 small">Year: @Model.Year</label>
+            <label class="row p-1 px-3 small">ERSB Rating: @Model.ERSBRating</label>
+            <label class="row p-1 px-3 small">Genre: @Model.Genre</label>
+
+            @if (Model.LoanerName != null)
+            {
+                <form asp-controller="Home" asp-action="OffLoan" method="post">
+                    <div class="row">
+                        <input type="hidden" name="id" value="@Model.ID" />
+                        <label asp-for="GameTitle" class="px-3">Loaned to @Model.LoanerName on @Model.LoanDate</label>
+                        <button type="submit">Return</button>
+                    </div>
+                </form>
+            }
+            else
+            {
+                <form asp-controller="Home" asp-action="OnLoan" method="post">
+                    <input type="hidden" name="id" value="@Model.ID" />
+                    <input id="loanerName" type="text" name="loanerName" placeholder="Name" />
+                    <button type="submit">Loan</button>
+                </form>
+            }
+        }
+        else
+        {
+            <h2>No movie provided</h2>
+        }
+    </div>
+</div>
