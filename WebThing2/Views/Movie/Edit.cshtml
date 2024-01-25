@@ -1,0 +1,30 @@
+﻿@model Movie
+
+<form asp-asp-controller="Movie" asp-action="Edit">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-promary">Edit Movie</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Title"></label>
+            <label asp-for="Title" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Year"></label>
+            <label asp-for="Year" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Rating"></label>
+            <label asp-for="Rating" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Image"></label>
+            <label asp-for="Image" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <div name="lblMsg" class="text-danger">
+            @ViewData["Error"]
+        </div>
+    </div>
+</form>

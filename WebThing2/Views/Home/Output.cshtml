@@ -1,0 +1,11 @@
+﻿
+@if (!string.IsNullOrEmpty(ViewBag.FN) && !string.IsNullOrEmpty(ViewBag.LN))
+{
+    <h2>Name: @ViewBag.FN @ViewBag.LN</h2>
+}
+else
+{
+    <div class="alert-danger">
+        <h4>Missing one or multiple input!</h4>
+    </div>
+}
