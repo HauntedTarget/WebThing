@@ -1,20 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebThing.Models;
+using WebThing2.Data;
+using WebThing2.Interfaces;
 
 namespace WebThing.Controllers
 {
     public class MovieController : Controller
     {
-        private static List<Movie> MovieList = new()
-        {
-            new Movie("A Series of Unfortunate Events", 2004, 4.0f),
-            new Movie("Everything Everywhere All At Once", 2022, 4.5f, DateTime.Now ,"https://upload.wikimedia.org/wikipedia/en/1/1e/Everything_Everywhere_All_at_Once.jpg")
-        };
+        IDataAccessLayer dal = new MovieListDAL();
 
         public IActionResult DisplayMovie()
         {
-            Movie m = MovieList[0];
-            return View(m);
+            Movie m = dal.GetMovie(0);
+            return View(m ?? null);
         }
 
         [HttpGet]
@@ -27,7 +25,7 @@ namespace WebThing.Controllers
             }
             else
             {
-                Movie? m = MovieList.Where(m => m.ID == id).FirstOrDefault();
+                Movie? m = dal.GetMovie((int)id);
                 if (m == null)
                 {
                     ViewData["Error"] = "Movie under ID not found";
@@ -38,25 +36,31 @@ namespace WebThing.Controllers
 
         public IActionResult MultMovies()
         {
-            return View(MovieList);
+            return View(dal.GetMovies());
         }
 
         public IActionResult OnLoan(int id, string loanerName)
         {
-            Movie movieThing = MovieList[id];
+            Movie movieThing = dal.GetMovie(id);
 
-            movieThing.LoanerName = loanerName;
-            movieThing.ReleaseDate = DateTime.Now;
+            if (movieThing != null)
+            {
+                movieThing.LoanerName = loanerName;
+                movieThing.ReleaseDate = DateTime.Now;
+            }
 
             return RedirectToAction("MultMovies", "Movie");
         }
 
         public IActionResult OffLoan(int id)
         {
-            Movie movieThing = MovieList[id];
+            Movie movieThing = dal.GetMovie(id);
 
-            movieThing.LoanerName = null;
-            movieThing.ReleaseDate = null;
+            if (movieThing != null)
+            {
+                movieThing.LoanerName = null;
+                movieThing.ReleaseDate = null;
+            }
 
             return RedirectToAction("MultMovies", "Movie");
         }
