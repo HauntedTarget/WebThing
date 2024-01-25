@@ -9,5 +9,7 @@ namespace WebThing2.Interfaces
         void AddMovie(Movie movie);
         void RemoveMovie(int id);
         Movie? GetMovie(int id);
+
+        void UpdateMovie(Movie movie);
     }
 }

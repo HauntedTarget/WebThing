@@ -32,5 +32,12 @@ namespace WebThing2.Data
             Movie? found = GetMovie(id);
             if (found != null) MovieList.Remove(found);
         }
+
+        void UpdateMovie(Movie movie)
+        {
+            int index;
+            index = MovieList.FindIndex(x =>x.ID == movie.ID);
+            MovieList[index] = movie;
+        }
     }
 }
