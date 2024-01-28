@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    
+}
+
+<div>
+    <form asp-controller="Home" asp-action="Output" method="post">
+        <div class="row">
+            <div class="col-4">
+                <label for="Name">Name:</label>
+                <input id="Name" @*Make id & name the same*@ type="text" @*type can also be a number for int*@ name="Name" placeholder="Name" />
+            </div>
+            <div class="col-4">
+                <label for="Age">Age:</label>
+                <input id="Age" @*Make id & name the same*@ type="number" @*type can also be a number for int*@ name="Age" placeholder="Age" />
+            </div>
+        </div>
+        <br />
+        <h1>Address</h1>
+        <div class="row">
+            <div class="col-3">
+                <label for="Street">Street:</label>
+                <input id="Street" @*Make id & name the same*@ type="text" @*type can also be a number for int*@ name="Street" placeholder="Street" />
+            </div>
+            <div class="col-3">
+                <label for="City">City:</label>
+                <input id="City" @*Make id & name the same*@ type="text" @*type can also be a number for int*@ name="City" placeholder="City" />
+            </div>
+            <div class="col-3">
+                <label for="State">State:</label>
+                <input id="State" @*Make id & name the same*@ type="text" @*type can also be a number for int*@ name="State" placeholder="State" />
+            </div>
+            <div class="col-3">
+                <label for="ZipCode">Zip Code:</label>
+                <input id="ZipCode" @*Make id & name the same*@ type="number" @*type can also be a number for int*@ name="ZipCode" placeholder="Zip Code" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
