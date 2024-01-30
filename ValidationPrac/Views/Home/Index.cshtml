@@ -1,19 +1,20 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
-
-    
+    ViewData["Title"] = "Home Page";  
 }
+@model Validation
 
 <div>
-    <form asp-controller="Home" asp-action="Output" method="post">
+    <form asp-controller="Home" asp-action="Index" method="post">
         <div class="row">
             <div class="col-4">
                 <label for="Name">Name:</label>
-                <input id="Name" @*Make id & name the same*@ type="text" @*type can also be a number for int*@ name="Name" placeholder="Name" />
+                <input asp-for="Name"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="col-4">
                 <label for="Age">Age:</label>
-                <input id="Age" @*Make id & name the same*@ type="number" @*type can also be a number for int*@ name="Age" placeholder="Age" />
+                <input asp-for="Age" type="number"/>
+                <span asp-validation-for="Age" class="text-danger"></span>
             </div>
         </div>
         <br />
@@ -21,19 +22,25 @@
         <div class="row">
             <div class="col-3">
                 <label for="Street">Street:</label>
-                <input id="Street" @*Make id & name the same*@ type="text" @*type can also be a number for int*@ name="Street" placeholder="Street" />
+                <input asp-for="Street"/>
+                <span asp-validation-for="Street" class="text-danger"></span>
             </div>
             <div class="col-3">
                 <label for="City">City:</label>
-                <input id="City" @*Make id & name the same*@ type="text" @*type can also be a number for int*@ name="City" placeholder="City" />
+                <input asp-for="City"/>
+                <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="col-3">
+
                 <label for="State">State:</label>
-                <input id="State" @*Make id & name the same*@ type="text" @*type can also be a number for int*@ name="State" placeholder="State" />
+                <input asp-for="State"/>
+                <span asp-validation-for="State" class="text-danger"></span>
             </div>
             <div class="col-3">
+
                 <label for="ZipCode">Zip Code:</label>
-                <input id="ZipCode" @*Make id & name the same*@ type="number" @*type can also be a number for int*@ name="ZipCode" placeholder="Zip Code" />
+                <input asp-for="ZipCode"/>
+                <span asp-validation-for="ZipCode" class="text-danger"></span>
             </div>
         </div>
         <div class="row">

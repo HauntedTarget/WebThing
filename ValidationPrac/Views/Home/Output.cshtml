@@ -6,23 +6,5 @@
 }
 else
 {
-    @if (Model.Name == string.Empty)
-    {
-        <label class="alert-danger">No Name Provided!</label>
-        <br />
-    }
-    @if (Model.Age <= 5)
-    {
-        <label class="alert-danger">Either the age was not provided or is less than 5!</label>
-        <br />
-    }
-    @if (Model.Street == string.Empty || Model.City == string.Empty || Model.State == string.Empty || Model.ZipCode <= 9999 || Model.ZipCode >= 100000)
-    {
-        <label class="alert-danger">One or more of the address bars are missing or invalid!</label>
-    }
-
-    @if (Model.Valid)
-    {
-        <label class="accept-policy">Data accepted, Have A Nice Day!!!</label>
-    }
+    <label class="accept-policy">Data accepted, Have A Nice Day!!!</label>
 }
