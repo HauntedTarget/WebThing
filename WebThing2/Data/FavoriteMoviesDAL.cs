@@ -4,12 +4,15 @@ using WebThing.Models;
 
 namespace WebThing2.Data
 {
-    public class MovieListDAL : IDataAccessLayer
+    public class FavoriteMoviesDAL : IDataAccessLayer
     {
         private static List<Movie> MovieList = new()
         {
-            new Movie("A Series of Unfortunate Events", 2004, 4.0f),
-            new Movie("Everything Everywhere All At Once", 2022, 4.5f, DateTime.Now ,"https://upload.wikimedia.org/wikipedia/en/1/1e/Everything_Everywhere_All_at_Once.jpg")
+            new Movie("Bee Movie", 2007, 2.0f),
+            new Movie("Mars Needs Moms", 2011, 1.0f),
+            new Movie("Sharknado", 2013, 2.5f),
+            new Movie("The Last Airbender", 2010, 0.0f),
+            new Movie("Emoji Movie", 2017, float.MinValue)
         };
 
         public void AddMovie(Movie movie)
@@ -36,7 +39,7 @@ namespace WebThing2.Data
         void UpdateMovie(Movie movie)
         {
             int index;
-            index = MovieList.FindIndex(x =>x.ID == movie.ID);
+            index = MovieList.FindIndex(x => x.ID == movie.ID);
             MovieList[index] = movie;
         }
 

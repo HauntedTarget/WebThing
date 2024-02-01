@@ -1,7 +1,17 @@
+using WebThing2.Interfaces;
+using WebThing2.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Send in DAL as dependency
+// transient = creates new object each time service requested
+// scoped = instances created once per request, refresh with new instance
+// singlton = always return same instance
+//builder.Services.AddTransient<IDataAccessLayer, MovieListDAL>();
+builder.Services.AddTransient<IDataAccessLayer, FavoriteMoviesDAL>();
 
 var app = builder.Build();
 

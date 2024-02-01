@@ -7,7 +7,13 @@ namespace WebThing.Controllers
 {
     public class MovieController : Controller
     {
-        IDataAccessLayer dal = new MovieListDAL();
+        //IDataAccessLayer dal = new MovieListDAL();
+        IDataAccessLayer dal;
+
+        public MovieController(IDataAccessLayer inDal) //Allows for dependency injection
+        {
+            dal = inDal;
+        }
 
         public IActionResult DisplayMovie()
         {
