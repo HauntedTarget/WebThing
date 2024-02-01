@@ -16,6 +16,7 @@ namespace ValidationPrac.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();

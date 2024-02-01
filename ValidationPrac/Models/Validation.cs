@@ -13,11 +13,14 @@ namespace ValidationPrac.Models
         [Range(5, int.MaxValue, ErrorMessage = "Too Young!")]
         public int? Age { get; set; }
 
-        public string? Street, City, State, ZipCode;
+        public string? Street { get; set; }
+        public string? City { get; set; }
+        public string? State { get; set; }
+        public string? ZipCode { get; set; }
 
         public Validation() { }
 
-        public Validation(string name, int age, string street, string city, string state, string zipCode)
+        public Validation(string? name, int? age, string? street, string? city, string? state, string? zipCode)
         {
             Name = name;
             Age = age;
