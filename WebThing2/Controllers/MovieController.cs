@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebThing.Models;
-using WebThing2.Data;
+using WebThing2.Data
 using WebThing2.Interfaces;
 
 namespace WebThing.Controllers
