@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Options;
+using System;
 using static VideoGameLibrary.Models.Game;
 
 namespace VideoGameLibrary.Models
 {
     public class Game
     {
-        public enum Platform
+        public enum PlatformType
         {
             Playstation = 0,
             XBox = 1,
@@ -23,30 +25,31 @@ namespace VideoGameLibrary.Models
         public string? Genre { get; set; }
         public string? ERSBRating { get; set; }
         public DateTime? LoanDate { get; set; }
-        public Platform platform { get; set; }
+        public PlatformType Platform { get; set; }
 
         public Game()
         {
+
         }
 
-        public Game(string title, Platform platform, string genre, int year, string rating, string image = "")
+        public Game(string title, PlatformType platform, string genre, int year, string rating, string image = "")
         {
             GameTitle = title;
-            this.platform = platform;
+            this.Platform = platform;
             Genre = genre;
             Year = year;
             ERSBRating = rating;
             Image = image;
         }
 
-        public Game(string title, Platform platform, int year, string rating)
+        public Game(string title, PlatformType platform, int year, string rating)
         {
             GameTitle = title;
             Year = year;
             ERSBRating = rating;
         }
 
-        public Game(string title, Platform platform, int year, string rating, DateTime dateTime, string image = "")
+        public Game(string title, PlatformType platform, int year, string rating, DateTime dateTime, string image = "")
         {
             GameTitle = title;
             Year = year;
@@ -55,7 +58,7 @@ namespace VideoGameLibrary.Models
             Image = image;
         }
 
-        public Game(string title, Platform platform, int year, string rating, string image = "")
+        public Game(string title, PlatformType platform, int year, string rating, string image = "")
         {
             GameTitle = title;
             Year = year;

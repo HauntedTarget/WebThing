@@ -1,5 +1,43 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using static VideoGameLibrary.Models.Game
+@model Game
+
+<form asp-asp-controller="Home" asp-action="GameEditConfirm">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-promary">Edit Game</h2>
+            <hr />
+        </div>
+        <input type="hidden" asp-for="ID" value="@Model.ID" class="form-control" />
+        <div class="mb-3">
+            <label asp-for="@Model.GameTitle"/>
+            <input asp-for="@Model.GameTitle" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Year"/>
+            <input asp-for="@Model.Year" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Genre"></label>
+            <input asp-for="@Model.Genre" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.ERSBRating"></label>
+            <input asp-for="@Model.ERSBRating" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Platform"></label>
+            @*Learnt here: https://www.learnrazorpages.com/razor-pages/forms/select-lists*@
+            <select asp-for="@Model.Platform" asp-items="Html.GetEnumSelectList<PlatformType>()" class="form-control">
+                <option value="">Select Platform</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Image"></label>
+            <input asp-for="@Model.Image" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <div name="lblMsg" class="text-danger">
+            @ViewData["Error"]
+        </div>
+    </div>
+</form>

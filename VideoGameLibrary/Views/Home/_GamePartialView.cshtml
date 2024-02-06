@@ -7,19 +7,19 @@
             <h3 class="fw-bolder text-center btn-outline-light pt-1">@Model.GameTitle</h3>
             <img src="@Model.Image" width="275" class="align-content-center top-0"/>
             <div class="pt-3 pb-3">
-                @if (Model.platform == Game.Platform.Playstation)
+                @if (Model.Platform == Game.PlatformType.Playstation)
                 {
                     <img src="/images/playstationLogo.png" width="50" />
                 }
-                else if (Model.platform == Game.Platform.XBox)
+                else if (Model.Platform == Game.PlatformType.XBox)
                 {
                     <img src="/images/xboxLogo.png" width="50" />
                 }
-                else if (Model.platform == Game.Platform.Nintendo)
+                else if (Model.Platform == Game.PlatformType.Nintendo)
                 {
                     <img src="/images/nintendoLogo.png" width="50" />
                 }
-                else if (Model.platform == Game.Platform.Steam)
+                else if (Model.Platform == Game.PlatformType.Steam)
                 {
                     <img src="/images/steamLogo.png" width="50" />
                 }

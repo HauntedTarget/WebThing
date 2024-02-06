@@ -3,6 +3,7 @@ using System.Diagnostics;
 using VideoGameLibrary.Models;
 using VideoGameLibrary.Data;
 using VideoGameLibrary.Interfaces;
+using System.Collections.Generic;
 
 namespace VideoGameLibrary.Controllers
 {
@@ -15,6 +16,17 @@ namespace VideoGameLibrary.Controllers
             dal = inDal;
         }
 
+        public IActionResult GameSearch(string GameName)
+        {
+            List<Game> FoundGames = new();
+            foreach (Game game in dal.GetGames())
+            {
+                if (game.GameTitle != null && game.GameTitle.ToLower().Contains(GameName.ToLower())) FoundGames.Add(game);
+            }
+
+            return View("Collection", FoundGames);
+        }
+
         public IActionResult RemoveGame(int id)
         {
             if (dal.GetGame(id) != null) dal.RemoveGame(id);
@@ -22,18 +34,25 @@ namespace VideoGameLibrary.Controllers
             return RedirectToAction("Collection", "Home");
         }
 
+        public IActionResult AddGame()
+        {
+            return View();
+        }
+
         public IActionResult EditGame(int id)
         {
-            return View();
+            return View(dal.GetGame(id));
         }
 
-            public IActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Collection()
+        public IActionResult Collection(List<Game>? query)
         {
+            if (query != null && query.Count > 0) return View(query);
+
             return View(dal.GetGames());
         }
 
@@ -64,6 +83,26 @@ namespace VideoGameLibrary.Controllers
 
             movieThing.LoanerName = null;
             movieThing.LoanDate = null;
+
+            return RedirectToAction("Collection", "Home");
+        }
+
+        public IActionResult GameEditConfirm(Game editedGame)
+        {
+            if (editedGame != null) 
+            {
+                dal.UpdateGame(editedGame);
+            }
+
+            return RedirectToAction("Collection", "Home");
+        }
+
+        public IActionResult GameAddConfirm(Game newGame)
+        {
+            if (newGame != null)
+            {
+                dal.AddGame(newGame);
+            }
 
             return RedirectToAction("Collection", "Home");
         }

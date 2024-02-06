@@ -1,6 +1,11 @@
 ﻿@model IEnumerable<Game>
 
-<h1 class="fw-bolder btn-outline-dark p-3">Game Library</h1>
+<div>
+    <h1 class="fw-bolder btn-outline-dark p-3 row">
+        <label class="col-9">Game Library</label>
+        <a class="col-3 btn btn-primary" asp-area="" asp-controller="Home" asp-action="AddGame"><label class="fw-bolder">Add Game</label></a>
+    </h1>
+</div>
 <div class="row pb-2">
     @if (Model != null && Model.Count() > 0)
     {
