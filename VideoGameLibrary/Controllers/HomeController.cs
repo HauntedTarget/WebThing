@@ -15,7 +15,19 @@ namespace VideoGameLibrary.Controllers
             dal = inDal;
         }
 
-        public IActionResult Index()
+        public IActionResult RemoveGame(int id)
+        {
+            if (dal.GetGame(id) != null) dal.RemoveGame(id);
+
+            return RedirectToAction("Collection", "Home");
+        }
+
+        public IActionResult EditGame(int id)
+        {
+            return View();
+        }
+
+            public IActionResult Index()
         {
             return View();
         }
@@ -38,10 +50,10 @@ namespace VideoGameLibrary.Controllers
 
         public IActionResult OnLoan(int id, string loanerName)
         {
-            Game movieThing = dal.GetGame(id);
+            Game gameThing = dal.GetGame(id);
 
-            movieThing.LoanerName = loanerName;
-            movieThing.LoanDate = DateTime.Now;
+            gameThing.LoanerName = loanerName;
+            gameThing.LoanDate = DateTime.Now;
 
             return RedirectToAction("Collection", "Home");
         }

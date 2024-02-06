@@ -1,3 +1,6 @@
+using VideoGameLibrary.Data;
+using VideoGameLibrary.Interfaces;
+
 namespace VideoGameLibrary
 {
     public class Program
@@ -5,6 +8,8 @@ namespace VideoGameLibrary
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddTransient<IDataAccessLayer, GameLibraryDAL>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
