@@ -9,6 +9,7 @@ namespace VideoGameLibrary
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Dependencey Injection
             builder.Services.AddTransient<IDataAccessLayer, GameLibraryDAL>();
 
             // Add services to the container.
