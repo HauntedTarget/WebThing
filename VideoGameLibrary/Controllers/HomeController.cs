@@ -89,9 +89,13 @@ namespace VideoGameLibrary.Controllers
 
         public IActionResult GameEditConfirm(Game editedGame)
         {
-            if (editedGame != null) 
+            if (editedGame != null && ModelState.IsValid)
             {
                 dal.UpdateGame(editedGame);
+            }
+            else
+            {
+                return RedirectToAction("Edit", "Home");
             }
 
             return RedirectToAction("Collection", "Home");
