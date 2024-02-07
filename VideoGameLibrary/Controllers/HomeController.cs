@@ -34,7 +34,7 @@ namespace VideoGameLibrary.Controllers
             return RedirectToAction("Collection", "Home");
         }
 
-        public IActionResult AddGame()
+        public IActionResult Add()
         {
             return View();
         }
