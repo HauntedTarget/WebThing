@@ -99,9 +99,13 @@ namespace VideoGameLibrary.Controllers
 
         public IActionResult GameAddConfirm(Game newGame)
         {
-            if (newGame != null)
+            if (newGame != null && ModelState.IsValid)
             {
                 dal.AddGame(newGame);
+            }
+            else
+            {
+                return RedirectToAction("Add", "Home");
             }
 
             return RedirectToAction("Collection", "Home");
