@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using VideoGameLibrary.Data;
 using VideoGameLibrary.Interfaces;
@@ -14,6 +15,18 @@ namespace VideoGameLibrary
 
             // Dependencey Injection
             builder.Services.AddTransient<IDataAccessLayer, GameLibraryDAL>();
+
+            builder.Services.Configure<IdentityOptions>(options =>
+            {
+
+                //password settings
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 1;
+
+            });
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
