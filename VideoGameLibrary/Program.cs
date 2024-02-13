@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using VideoGameLibrary.Data;
 using VideoGameLibrary.Interfaces;
 
@@ -8,6 +9,8 @@ namespace VideoGameLibrary
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Dependencey Injection
             builder.Services.AddTransient<IDataAccessLayer, GameLibraryDAL>();

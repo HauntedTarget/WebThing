@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Options;
 using System;
+using System.ComponentModel.DataAnnotations;
 using static VideoGameLibrary.Models.Game;
 
 namespace VideoGameLibrary.Models
@@ -16,8 +17,7 @@ namespace VideoGameLibrary.Models
             Epic = 4
         }
 
-        private static int nextID = 0;
-        public int? ID { get; set; } = nextID++;
+        [Key] [Required] public int ID { get; set; }
         public int? Year { get; set; }
         public string? GameTitle { get; set; }
         public string? Image { get; set; }
@@ -25,7 +25,7 @@ namespace VideoGameLibrary.Models
         public string? Genre { get; set; }
         public string? ERSBRating { get; set; }
         public DateTime? LoanDate { get; set; }
-        public PlatformType Platform { get; set; }
+        [Required] public PlatformType Platform { get; set; }
 
         public Game()
         {
