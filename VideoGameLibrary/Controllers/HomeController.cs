@@ -10,10 +10,9 @@ namespace VideoGameLibrary.Controllers
     public class HomeController : Controller
     {
         IDataAccessLayer dal;
-
-        public HomeController(IDataAccessLayer inDal)
+        public HomeController(IDataAccessLayer indal)
         {
-            dal = inDal;
+            dal = indal;
         }
 
         public IActionResult GameSearch(string GameName)
@@ -74,15 +73,19 @@ namespace VideoGameLibrary.Controllers
             gameThing.LoanerName = loanerName;
             gameThing.LoanDate = DateTime.Now;
 
+            dal.UpdateGame(gameThing);
+
             return RedirectToAction("Collection", "Home");
         }
 
         public IActionResult OffLoan(int id)
         {
-            Game movieThing = dal.GetGame(id);
+            Game gameThing = dal.GetGame(id);
 
-            movieThing.LoanerName = null;
-            movieThing.LoanDate = null;
+            gameThing.LoanerName = null;
+            gameThing.LoanDate = null;
+
+            dal.UpdateGame(gameThing);
 
             return RedirectToAction("Collection", "Home");
         }
